@@ -6,21 +6,13 @@
 
 using namespace std;
 
-void printL(list<int> cont, int x)
+template <typename T>
+void print(T cont, int x)
 {
 	cout << "Просмотр контейнера №" << x << ":";
-	list <int>::iterator it;
+	T::iterator it;
 	for (it = cont.begin(); it != cont.end(); it++) 
 		cout <<*it <<" ";
-	cout << endl;
-}
-
-void printV(vector<int> cont, int x)
-{
-	cout << "Просмотр контейнера №" << x << ":";
-	vector <int>::iterator it;
-	for (it = cont.begin(); it != cont.end(); it++)
-		cout << *it << " ";
 	cout << endl;
 }
 
@@ -48,7 +40,7 @@ int main()
 
 	//3.Просмтор контейнера
 	cout << "Пункт №2 и №3 (Просмотр отсортированного контейнера)"<<endl;
-	printL(l,1);
+	print(l,1);
 	cout << endl;
 
 	//4.Поиск заданного элемента
@@ -79,12 +71,12 @@ int main()
 			it = l.begin();
 		}
 	} while (it != l.end());
-	printL(l,1);
+	print(l,1);
 	cout << endl;
 
 	//6.Просмотр 2-го контейнера
 	cout << "Пункт №6 (Просмотр 2-го контейнера)"<<endl;
-	printV(v1,2);
+	print(v1,2);
 	cout << endl;
 
 	//7. Сортировка контейнеров
@@ -93,8 +85,8 @@ int main()
 
 	//8.Просмотр контейнеров
 	cout << "Пункт №7 и №8 (Просмтор отсортированных контейнеров)"<<endl;
-	printL(l,1);
-	printV(v1,2);
+	print(l,1);
+	print(v1,2);
 	cout << endl;
 
 	//9.Слияние контейнеров
@@ -103,7 +95,7 @@ int main()
 
 	//10. Просмотр получившегося контейнера
 	cout << "Пункт №9 и №10 (Слияние и просмотр)" << endl;
-	printV(v2,3);
+	print(v2,3);
 	cout << endl;
 
 	//11.Подсчет элементов,удовлетворяющих заданному условию
@@ -112,7 +104,7 @@ int main()
 	int N = 0;
 	for (it_v = v2.begin(); it_v != v2.end(); it_v++)
 	{
-		if ((*it_v) % 2) N++;
+		if ((*it_v) % 2 == 0) N++;
 	}
 	cout << "Число четных элементов в 3 контейнера: " << N << endl;
 	cout << endl;
